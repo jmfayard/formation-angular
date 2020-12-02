@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngrok": "ngrok http -host-header=rewrite 4200"
+    "ngrok": "ngrok http -host-header=rewrite 4200",
+    "headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
