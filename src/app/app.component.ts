@@ -40,4 +40,7 @@ export class AppComponent {
     return [one, two, three, four];
   }
 
+  add(product: Product) {
+    this.total += product.price;
+  }
 }

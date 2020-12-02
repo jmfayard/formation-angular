@@ -15,10 +15,10 @@
     </div>
   </div>
   <div class="row text-center">
-    <app-product [product]="products[0]"></app-product>
-    <app-product [product]="products[1]"></app-product>
-    <app-product [product]="products[2]"></app-product>
-    <app-product [product]="products[3]"></app-product>
+    <app-product [product]="products[0]" (addToBasket)="add($event)"></app-product>
+    <app-product [product]="products[1]" (addToBasket)="add($event)"></app-product>
+    <app-product [product]="products[2]" (addToBasket)="add($event)"></app-product>
+    <app-product [product]="products[3]" (addToBasket)="add($event)"></app-product>
   </div>
 
   <hr>
