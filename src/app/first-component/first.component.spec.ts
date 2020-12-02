@@ -22,4 +22,8 @@ describe('FirstCompooentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the right title', function() {
+    expect(component.title).toBe('This is my first component');
+  });
 });
