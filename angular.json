@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "formation-angular"
+  "defaultProject": "formation-angular",
+  "cli": {
+    "analytics": "ef326a1a-a619-4a01-91ef-40f44e8323bc"
+  }
 }
