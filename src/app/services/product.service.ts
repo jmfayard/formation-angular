@@ -51,7 +51,7 @@ export class ProductService {
       price: 12.50,
       title: 'Tote bag'
     };
-    return [one, two, three, four];
+    return [one, four, two, three];
   }
 
   constructor() {

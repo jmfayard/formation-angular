@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProductService } from './product.service';
 import {Product} from '../model/product';
+import {SortProductsPipe} from '../pipes/sort-products.pipe';
 
 describe('ProductService', () => {
   let service: ProductService;
@@ -14,7 +15,9 @@ describe('ProductService', () => {
   }
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      declarations: [SortProductsPipe]
+    });
     service = TestBed.inject(ProductService);
   });
 

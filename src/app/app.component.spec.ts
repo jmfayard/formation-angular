@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ProductComponent} from './product/product.component';
+import {SortProductsPipe} from './pipes/sort-products.pipe';
 
 describe('AppComponent', () => {
 
@@ -16,7 +17,7 @@ describe('AppComponent', () => {
         CUSTOM_ELEMENTS_SCHEMA
       ],
       declarations: [
-        AppComponent
+        AppComponent, SortProductsPipe
       ],
     }).compileComponents();
 
@@ -42,7 +43,7 @@ describe('AppComponent', () => {
     const product = component.products[0];
     component.updateBasket(product);
     fixture.detectChanges();
-    expect(element.querySelector('header p').innerHTML).toContain(`${product.price}$`);
+    expect(element.querySelector('header p').innerHTML).toContain(`$39.00`);
   });
 
 });

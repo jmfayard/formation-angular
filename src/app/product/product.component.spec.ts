@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
 import {Product} from '../model/product';
+import {SortProductsPipe} from '../pipes/sort-products.pipe';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -18,7 +19,7 @@ describe('ProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductComponent ]
+      declarations: [ ProductComponent, SortProductsPipe ]
     })
     .compileComponents();
   });
@@ -37,7 +38,7 @@ describe('ProductComponent', () => {
 
 
   it('should show the price', function() {
-    expect(element.querySelector('.caption h3').textContent).toContain('39$');
+    expect(element.querySelector('.caption h3').textContent).toContain('$39.00');
   });
 
   it('should show the description', function() {
@@ -45,7 +46,7 @@ describe('ProductComponent', () => {
   });
 
   it('should show the title', function() {
-    expect(element.querySelector('.caption h3').innerHTML).toContain(product.title);
+    expect(element.querySelector('.caption h3').innerHTML).toContain(product.title.toUpperCase());
   });
 
   it('should show the image', function() {
