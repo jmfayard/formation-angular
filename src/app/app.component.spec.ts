@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ProductComponent} from './product/product.component';
 
 describe('AppComponent', () => {
 
@@ -41,7 +42,7 @@ describe('AppComponent', () => {
     const product = component.products[0];
     component.updateBasket(product);
     fixture.detectChanges();
-    expect(element.querySelector('header p').innerHTML).toContain(`${product.price}$`)
-
+    expect(element.querySelector('header p').innerHTML).toContain(`${product.price}$`);
   });
+
 });

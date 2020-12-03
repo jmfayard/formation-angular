@@ -12,7 +12,8 @@ describe('ProductComponent', () => {
     description: 'Men Sweatshirt',
     photo: 'https://s3.eu-central-1.amazonaws.com/balibart-s3/Products/5acf344514006a7fe670e2eb/Mockups/front.png',
     price: 39,
-    title: 'Men Sweatshirt'
+    title: 'Men Sweatshirt',
+    stock: 0
   };
 
   beforeEach(async () => {
