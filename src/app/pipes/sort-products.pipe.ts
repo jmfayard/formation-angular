@@ -6,14 +6,14 @@ import {Product} from '../model/product';
 })
 export class SortProductsPipe implements PipeTransform {
 
-  transform(products: Product[]): Product[] {
+  transform(products: Product[], column: keyof Product = "title"): Product[] {
     if (!products) {
       return [];
     }
-    return products.sort((a, b) => {
-      if (a.title < b.title) {
+    return [...products].sort((a, b) => {
+      if (a[column] < b[column]) {
         return -1;
-      } else if (a == b) {
+      } else if (a[column] == b[column]) {
         return 0;
       } else {
         return 1;
