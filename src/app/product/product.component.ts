@@ -9,13 +9,19 @@ import {Product} from '../model/product';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Output() addToBasket: EventEmitter<Product> = new EventEmitter<Product>();
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   onClick(): void {
     this.addToBasket.emit(this.product);
+  }
+
+  isLast(product: Product): boolean {
+    return product.stock == 1;
   }
 
 }
