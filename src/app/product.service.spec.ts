@@ -31,13 +31,13 @@ describe('ProductService', () => {
 
   it('should be available and the last when stock is 1', function() {
     product.stock = 1;
-    expect(service.isAvailable(product)).withContext('available?').toBe(true);
-    expect(service.isTheLast(product)).withContext('last?').toBe(true);
+    expect(service.isAvailable(product)).withContext('isAvailable').toBe(true);
+    expect(service.isTheLast(product)).withContext('isTheLast').toBe(true);
   });
 
   it('should be the last and not available when stock is 0', function() {
     product.stock = 0;
-    expect(service.isAvailable(product)).withContext('available?').toBe(false);
-    expect(service.isTheLast(product)).withContext('last?').toBe(true);
+    expect(service.isAvailable(product)).withContext('isAvailable').toBe(false);
+    expect(service.isTheLast(product)).withContext('isTheLast').toBe(false);
   });
 });
