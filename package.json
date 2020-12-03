@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "ip": "ng serve --port 8081 --host http://172.31.10.70/ --disableHostCheck",
+    "ip": "ng serve --port 8081 --host 172.31.10.70 --disableHostCheck",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
