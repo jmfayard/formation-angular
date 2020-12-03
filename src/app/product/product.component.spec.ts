@@ -30,4 +30,27 @@ describe('ProductComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should show the price', function() {
+    expect(fixture.nativeElement.querySelector('.caption h3').textContent).toContain('39$');
+  });
+
+  it('should show the description', function() {
+    expect(fixture.nativeElement.querySelector('.caption p').textContent).toBe(product.description);
+  });
+
+  it('should show the title', function() {
+    expect(fixture.nativeElement.querySelector('.caption h3').textContent).toContain(product.title);
+  });
+
+  it('should show the image', function() {
+    expect(fixture.nativeElement.querySelector('img').src).toBe(product.photo);
+  });
+
+  it('should forward clicks to its output', function() {
+    spyOn(component.addToBasket, 'emit');
+    fixture.nativeElement.querySelector('button').click();
+    expect(component.addToBasket.emit).toHaveBeenCalledWith(product);
+  });
 });

@@ -22,4 +22,8 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain Zenika', function() {
+    expect(fixture.nativeElement.querySelector('.navbar-header').innerHTML).toContain('Zenika Ecommerce');
+  });
 });
