@@ -15,9 +15,9 @@
     </div>
   </div>
   <div class="row text-center">
-    <ng-template *ngFor="let product of products">
-      <app-product *ngIf="true" [product]="product" (addToBasket)="updateBasket($event)"></app-product>
-    </ng-template>
+    <ng-container *ngFor="let product of products">
+      <app-product *ngIf="product.stock > 0" [product]="product" (addToBasket)="updateBasket($event)"></app-product>
+    </ng-container>
   </div>
 
   <hr>
