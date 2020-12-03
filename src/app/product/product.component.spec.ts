@@ -13,7 +13,7 @@ describe('ProductComponent', () => {
     photo: 'https://s3.eu-central-1.amazonaws.com/balibart-s3/Products/5acf344514006a7fe670e2eb/Mockups/front.png',
     price: 39,
     title: 'Men Sweatshirt',
-    stock: 0
+    stock: 1
   };
 
   beforeEach(async () => {
@@ -41,11 +41,11 @@ describe('ProductComponent', () => {
   });
 
   it('should show the description', function() {
-    expect(element.querySelector('.caption p').textContent).toBe(product.description);
+    expect(element.querySelector('.caption p').innerHTML).toContain(product.description);
   });
 
   it('should show the title', function() {
-    expect(element.querySelector('.caption h3').textContent).toContain(product.title);
+    expect(element.querySelector('.caption h3').innerHTML).toContain(product.title);
   });
 
   it('should show the image', function() {
@@ -53,8 +53,19 @@ describe('ProductComponent', () => {
   });
 
   it('should forward clicks to its output', function() {
+    product.stock = 1;
+    fixture.detectChanges();
     spyOn(component.addToBasket, 'emit');
     element.querySelector('button').click();
     expect(component.addToBasket.emit).toHaveBeenCalledWith(product);
   });
+
+  it('should not add to basket if the stock is empty', function() {
+    product.stock = 0;
+    fixture.detectChanges();
+    spyOn(component.addToBasket, 'emit');
+    element.querySelector('button').click();
+    expect(component.addToBasket.emit).toHaveBeenCalledTimes(0);
+  });
+
 });
