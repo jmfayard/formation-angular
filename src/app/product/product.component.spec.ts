@@ -6,6 +6,8 @@ import {Product} from '../model/product';
 describe('ProductComponent', () => {
   let component: ProductComponent;
   let fixture: ComponentFixture<ProductComponent>;
+  let  element: HTMLElement
+
   const product: Product = {
     description: 'Men Sweatshirt',
     photo: 'https://s3.eu-central-1.amazonaws.com/balibart-s3/Products/5acf344514006a7fe670e2eb/Mockups/front.png',
@@ -25,6 +27,7 @@ describe('ProductComponent', () => {
     component = fixture.componentInstance;
     component.product = product;
     fixture.detectChanges();
+    element = fixture.nativeElement;
   });
 
   it('should create', () => {
@@ -33,24 +36,24 @@ describe('ProductComponent', () => {
 
 
   it('should show the price', function() {
-    expect(fixture.nativeElement.querySelector('.caption h3').textContent).toContain('39$');
+    expect(element.querySelector('.caption h3').textContent).toContain('39$');
   });
 
   it('should show the description', function() {
-    expect(fixture.nativeElement.querySelector('.caption p').textContent).toBe(product.description);
+    expect(element.querySelector('.caption p').textContent).toBe(product.description);
   });
 
   it('should show the title', function() {
-    expect(fixture.nativeElement.querySelector('.caption h3').textContent).toContain(product.title);
+    expect(element.querySelector('.caption h3').textContent).toContain(product.title);
   });
 
   it('should show the image', function() {
-    expect(fixture.nativeElement.querySelector('img').src).toBe(product.photo);
+    expect(element.querySelector('img').src).toBe(product.photo);
   });
 
   it('should forward clicks to its output', function() {
     spyOn(component.addToBasket, 'emit');
-    fixture.nativeElement.querySelector('button').click();
+    element.querySelector('button').click();
     expect(component.addToBasket.emit).toHaveBeenCalledWith(product);
   });
 });

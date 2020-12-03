@@ -6,7 +6,7 @@ describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
-  let node: HTMLElement;
+  let element: HTMLElement;
 
 
   beforeEach(async () => {
@@ -22,7 +22,7 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
-    node = fixture.nativeElement;
+    element = fixture.nativeElement;
   });
 
   it('should create the app', () => {
@@ -34,14 +34,14 @@ describe('AppComponent', () => {
   });
 
   it('should render title', () => {
-    expect(node.querySelector('h1').textContent).toContain('Welcome to Zenika Ecommerces');
+    expect(element.querySelector('h1').textContent).toContain('Welcome to Zenika Ecommerces');
   });
 
   it('should update the title when the user clicks on a product', () => {
     const product = component.products[0];
     component.updateBasket(product);
     fixture.detectChanges();
-    expect(node.querySelector('header p').innerHTML).toContain(`${product.price}$`)
+    expect(element.querySelector('header p').innerHTML).toContain(`${product.price}$`)
 
   });
 });
