@@ -68,4 +68,17 @@ describe('ProductComponent', () => {
     expect(component.addToBasket.emit).toHaveBeenCalledTimes(0);
   });
 
+  it('should highlight stock 1', function() {
+    product.stock = 1;
+    fixture.detectChanges();
+    expect(element.querySelector('.thumbnail').className).toBe('thumbnail last');
+  });
+
+  it('should not highlight if plenty of elements', function() {
+    product.stock = 2;
+    fixture.detectChanges();
+    expect(element.querySelector('.thumbnail').className).toBe('thumbnail');
+  });
+
+
 });
