@@ -21,8 +21,7 @@ export class AppComponent implements  OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.products;
-    this.fetchProducts();
+    this.products = this.productService.initialProducts();
   }
 
   updateBasket(product: Product) {
