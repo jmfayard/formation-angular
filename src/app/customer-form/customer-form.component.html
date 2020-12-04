@@ -1,0 +1,15 @@
+<form >
+  <label for="name">
+    Name:
+    <input #nameInput name="name" type="text" required [(ngModel)]="customer.name">
+  </label>
+  <label for="address">
+    Name:
+    <input #addressInput name="address" type="text" required [(ngModel)]="customer.address">
+  </label>
+  <label for="creditcard">
+    Name:
+    <input #creditCardInput name="creditcard" type="text" required [(ngModel)]="customer.creditCard">
+  </label>
+  <button (submit)="onSubmit()"></button>
+</form>
