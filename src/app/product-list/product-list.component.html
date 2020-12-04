@@ -13,6 +13,6 @@
 </div>
 <div class="row text-center">
   <ng-container *ngFor="let product of products | sortProducts ">
-    <app-product *ngIf="product.stock > 0" [product]="product" (addToBasket)="updateBasket($event)"></app-product>
+    <app-product *ngIf="product.stock > 0" [product]="product"  [options]="{basket:false}" (addToBasket)="updateBasket($event)"></app-product>
   </ng-container>
 </div>

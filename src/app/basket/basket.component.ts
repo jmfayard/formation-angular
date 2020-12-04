@@ -17,4 +17,7 @@ export class BasketComponent implements OnInit {
     )
   }
 
+  removeFromBasket(product: Product) {
+
+  }
 }

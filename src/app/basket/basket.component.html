@@ -1,2 +1,10 @@
-<p>basket works!</p>
-<p>{{ basket | json }}</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h2>In your basket</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <ng-container *ngFor="let product of basket | sortProducts ">
+    <app-product [options]="{basket: true}" [product]="product" (addToBasket)="removeFromBasket(product)"></app-product>
+  </ng-container>
+</div>

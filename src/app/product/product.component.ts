@@ -8,6 +8,7 @@ import {Product} from '../model/product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+  @Input() options = { 'basket': false };
   @Output() addToBasket: EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor() {

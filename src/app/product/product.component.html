@@ -5,12 +5,13 @@
     <div class="caption">
       <h3>{{product.title | uppercase }} - {{product.price | currency: 'USD'}}</h3>
       <p>
-        {{product.description}}
+        {{product.description}} <small *ngIf="options.stock">(stock: {{product.stock}})</small>
       </p>
-      <p><small>(stock: {{product.stock}})</small></p>
+
       <p>
         <button (click)="onClick()" class="btn btn-primary" [disabled]="product.stock <= 0">
-          Add to basket
+          <ng-container *ngIf="!options.basket"> Add to basket</ng-container>
+          <ng-container *ngIf="options.basket"> Remove from basket</ng-container>
         </button>
       </p>
     </div>
