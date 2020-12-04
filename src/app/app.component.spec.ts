@@ -1,9 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {ProductComponent} from './product/product.component';
-import {SortProductsPipe} from './pipes/sort-products.pipe';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {configureTestBed} from './testing';
 
 describe('AppComponent', () => {
 
@@ -13,15 +10,7 @@ describe('AppComponent', () => {
 
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ],
-      declarations: [
-        AppComponent, SortProductsPipe
-      ],
-    }).compileComponents();
-
+    configureTestBed();
     fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;

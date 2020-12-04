@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CustomerService } from './customer.service';
+import {configureTestBed} from '../testing';
 
 describe('CustomerService', () => {
   let service: CustomerService;
@@ -13,7 +14,7 @@ describe('CustomerService', () => {
   }
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    configureTestBed();
     service = TestBed.inject(CustomerService);
   });
 
