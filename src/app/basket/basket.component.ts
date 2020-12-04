@@ -8,6 +8,9 @@ import {Product} from '../model/product';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
+  get total(): number {
+    return this.customerService.getTotal();
+  }
   basket: Product[] = []
   constructor(private customerService: CustomerService) { }
 
