@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { CustomerService } from './customer.service';
+import {CustomerService} from './customer.service';
 import {configureTestBed} from '../testing';
 
 describe('CustomerService', () => {
@@ -11,10 +11,10 @@ describe('CustomerService', () => {
     photo: 'https://s3.eu-central-1.amazonaws.com/balibart-s3/Products/5acf344514006a7fe670e2eb/Mockups/front.png',
     price: 39,
     title: 'Men Sweatshirt'
-  }
+  };
 
-  beforeEach(() => {
-    configureTestBed();
+  beforeEach(async () => {
+    await configureTestBed();
     service = TestBed.inject(CustomerService);
   });
 

@@ -18,8 +18,8 @@ describe('ProductService', () => {
     title: 'Men Sweatshirt'
   }
 
-  beforeEach(() => {
-    configureTestBed();
+  beforeEach(async () => {
+    await configureTestBed();
     service = TestBed.inject(ProductService);
     http = TestBed.inject(HttpTestingController);
   });

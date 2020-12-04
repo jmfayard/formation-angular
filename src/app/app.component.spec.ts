@@ -10,7 +10,7 @@ describe('AppComponent', () => {
 
 
   beforeEach(async () => {
-    configureTestBed();
+    await configureTestBed();
     fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
