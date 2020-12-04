@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  public static REST = 'http://localhost:8080/test'
+  public static REST = 'http://localhost:8080/rest'
 
   constructor(private httpClient: HttpClient) {
   }

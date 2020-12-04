@@ -31,7 +31,10 @@ export class AppComponent implements  OnInit {
 
   fetchProducts() {
     this.productService.fetchProducts().subscribe(
-      (products) => this.json = JSON.stringify(products)
+      (products) => {
+        this.products = products;
+        this.json = JSON.stringify(products)
+      }
     );
   }
 }
