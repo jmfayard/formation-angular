@@ -5,7 +5,6 @@
   </p>
 
   <app-customer-form (submit)="buyNow()"></app-customer-form>
-  <p *ngIf="result == null"><a (click)="buyNow()" class="btn btn-primary btn-large">Buy Now</a></p>
   <p *ngIf="result != null">
     Success! You have bought awesome tee-shirts. Your order: {{result?.orderNumber}}
   </p>

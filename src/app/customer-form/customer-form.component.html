@@ -1,18 +1,22 @@
-<form >
-  <label for="name">
-    <span class="label">Name: </span>
-    <input #nameInput name="name" type="text" required [(ngModel)]="customer.name">
-  </label>
+<form #myForm="ngForm" (submit)="onSubmit()">
+  <div class="form-group" [ngClass]="{'has-error': myForm.dirty && nameInput.invalid}">
+    <label for="name">Name: </label>
+    <input #nameInput="ngModel" name="name" type="text" required [(ngModel)]="customer.name" class="form-control"
+           [attr.aria-invalid]="!nameInput.valid"
+    >
+  </div>
   <br>
-  <label for="address">
-    <span class="label">Address:</span>
-    <input #addressInput name="address" type="text" required [(ngModel)]="customer.address">
-  </label>
+  <div class="form-group" [ngClass]="{'has-error': myForm.dirty && addressInput.invalid}">
+    <label for="address">Address:</label>
+    <input #addressInput="ngModel" name="address" type="text" required [(ngModel)]="customer.address" class="form-control">
+  </div>
   <br>
-  <label for="creditcard">
-    <span class="label">Credit Card:</span>
-    <input #creditCardInput name="creditcard" type="text" required [(ngModel)]="customer.creditCard">
-  </label>
-  <button (submit)="onSubmit()"></button>
+  <div class="form-group" [ngClass]="{'has-error': myForm.dirty && creditCardInput.invalid}">
+    <label for="creditcard">Credit Card:</label>
+    <input #creditCardInput="ngModel" name="creditcard" type="text" required [(ngModel)]="customer.creditCard" class="form-control"
+           [attr.aria-invalid]="!addressInput.valid"
+    >
+  </div>
+  <button class="btn btn-primary btn-large" [disabled]="myForm.invalid">Buy Now</button>
 </form>
 <hr/>

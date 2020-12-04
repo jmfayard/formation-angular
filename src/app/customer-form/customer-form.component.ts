@@ -13,7 +13,6 @@ export class CustomerFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   onSubmit() {
