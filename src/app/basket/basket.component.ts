@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from '../services/customer.service';
 import {Product} from '../model/product';
+import {OrderResult} from '../model/order-result';
 
 @Component({
   selector: 'app-basket',
@@ -12,6 +13,7 @@ export class BasketComponent implements OnInit {
     return this.customerService.getTotal();
   }
   basket: Product[] = []
+  result: OrderResult
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
@@ -22,5 +24,14 @@ export class BasketComponent implements OnInit {
 
   removeFromBasket(product: Product) {
 
+  }
+
+  buyNow() {
+    this.customerService.checkout(CustomerService.customer).subscribe(
+      (basket) => {
+        this.result = this.customerService.result
+        this.basket = basket
+      }
+    );
   }
 }

@@ -4,6 +4,8 @@ import {ProductService} from './product.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, mergeMap, tap} from 'rxjs/operators';
+import {Customer} from '../model/customer';
+import {OrderResult} from '../model/order-result';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,8 @@ export class CustomerService {
 
   }
   basket: Product[] = []
+  result: OrderResult = null
+  public static customer = new Customer('Jean Michel', 'Paris', 'credit card')
 
   getTotal(): number {
     let sum = 0;
@@ -38,6 +42,13 @@ export class CustomerService {
       }));
   }
 
+  checkout(customer: Customer): Observable<Product[]> {
+    return this.httpClient.post<any>(`${ProductService.REST}/basket/confirm`, customer)
+      .pipe(
+        tap((result) => this.result = result),
+        mergeMap(() => this.getBasket())
+      );
+  }
 
 
 }

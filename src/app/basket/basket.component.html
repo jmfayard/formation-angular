@@ -1,7 +1,13 @@
 <header class="jumbotron hero-spacer">
   <h1>Your basket</h1>
-  <p>Your basket amounts to {{total | currency : 'USD' }}</p>
-  <p><a routerLink="" class="btn btn-primary btn-large">Go home</a></p>
+  <p *ngIf="result == null">
+    Your basket amounts to {{total | currency : 'USD' }}
+  </p>
+
+  <p *ngIf="result == null"><a (click)="buyNow()" class="btn btn-primary btn-large">Buy Now</a></p>
+  <p *ngIf="result != null">
+    Success! You have bought awesome tee-shirts. Your order: {{result?.orderNumber}}
+  </p>
 </header>
 <div class="row text-center">
   <ng-container *ngFor="let product of basket | sortProducts ">
