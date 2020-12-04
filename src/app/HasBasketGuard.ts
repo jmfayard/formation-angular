@@ -12,13 +12,8 @@ export class HasBasketGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    console.log('%O', {route});
-    if (route.url[0].path === 'basket') {
-      const basket = this.customerService.basket
-      return basket.length != 0;
-    } else {
-      return true;
-    }
+    const basket = this.customerService.basket;
+    return basket.length != 0;
   }
 
 
