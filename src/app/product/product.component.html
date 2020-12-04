@@ -5,7 +5,7 @@
     <div class="caption">
       <h3>{{product.title | uppercase }} - {{product.price | currency: 'USD'}}</h3>
       <p>
-        {{product.description}} <small *ngIf="options.stock">(stock: {{product.stock}})</small>
+        {{product.description}} <small *ngIf="!options.basket">(stock: {{product.stock}})</small>
       </p>
 
       <p>
