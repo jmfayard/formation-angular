@@ -9,8 +9,18 @@ import {CustomerService} from './services/customer.service';
 import {ProductService} from './services/product.service';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { SortProductsPipe } from './pipes/sort-products.pipe';
+import {SortProductsPipe} from './pipes/sort-products.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {ProductListComponent} from './product-list/product-list.component';
+import {RouterModule, Routes} from '@angular/router';
+import {BasketComponent} from './basket/basket.component';
+import {HasBasketGuard} from './HasBasketGuard';
+
+const routes: Routes = [
+  { path:'', component: ProductListComponent },
+  { path:'basket', component: BasketComponent, canActivate: [HasBasketGuard] }
+]
+
 
 @NgModule({
   declarations: [
@@ -19,10 +29,13 @@ import {HttpClientModule} from '@angular/common/http';
     MenuComponent,
     ProductComponent,
     SortProductsPipe,
+    ProductListComponent,
+    BasketComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     CustomerService,
@@ -35,3 +48,4 @@ export class AppModule {
 }
 
 registerLocaleData(localeFr);
+
