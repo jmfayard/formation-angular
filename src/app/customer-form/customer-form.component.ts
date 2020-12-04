@@ -1,6 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Customer} from '../model/customer';
-import {EventEmitter} from 'events';
 
 @Component({
   selector: 'app-customer-form',
@@ -9,9 +8,8 @@ import {EventEmitter} from 'events';
 })
 export class CustomerFormComponent implements OnInit {
   customer: Customer = new Customer('', '', '');
-  @Output() submit : EventEmitter<Customer>
+  @Output() submit : EventEmitter<Customer>= new EventEmitter<Customer>();
   constructor() {
-    this.submit = new EventEmitter<Customer>();
   }
 
   ngOnInit(): void {
