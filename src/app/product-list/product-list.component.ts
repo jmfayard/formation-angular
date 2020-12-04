@@ -21,20 +21,16 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.initialProducts();
+    this.customerService.getBasket().subscribe()
+    this.productService.fetchProducts().subscribe(
+      (products) => this.products = products
+    );
   }
 
   updateBasket(product: Product) {
-    this.customerService.addProduct(product);
-  }
+    this.customerService.addProduct(product).subscribe(
 
-  fetchProducts() {
-    this.productService.fetchProducts().subscribe(
-      (products) => {
-        this.products = products;
-        this.json = JSON.stringify(products)
-      }
-    );
+    )
   }
 
 }

@@ -7,16 +7,15 @@ import {CustomerService} from './services/customer.service';
   providedIn: 'root'
 })
 export class HasBasketGuard implements CanActivate {
-  basket: Product[] = [];
 
   constructor(private customerService: CustomerService) {
-    customerService.getBasket().subscribe((basket) => this.basket = basket);
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     console.log('%O', {route});
     if (route.url[0].path === 'basket') {
-      return this.basket.length != 0;
+      const basket = this.customerService.basket
+      return basket.length != 0;
     } else {
       return true;
     }

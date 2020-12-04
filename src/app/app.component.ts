@@ -24,16 +24,4 @@ export class AppComponent implements  OnInit {
     this.products = this.productService.initialProducts();
   }
 
-  updateBasket(product: Product) {
-    this.customerService.addProduct(product);
-  }
-
-  fetchProducts() {
-    this.productService.fetchProducts().subscribe(
-      (products) => {
-        this.products = products;
-        this.json = JSON.stringify(products)
-      }
-    );
-  }
 }
