@@ -3,6 +3,7 @@ import {AppComponent} from './app.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ProductComponent} from './product/product.component';
 import {SortProductsPipe} from './pipes/sort-products.pipe';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
 

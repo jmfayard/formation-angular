@@ -3,9 +3,12 @@ import { TestBed } from '@angular/core/testing';
 import { ProductService } from './product.service';
 import {Product} from '../model/product';
 import {SortProductsPipe} from '../pipes/sort-products.pipe';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 describe('ProductService', () => {
   let service: ProductService;
+  let http: HttpTestingController
+
   const product = {
     stock: 2,
     description: 'Men Sweatshirt',
@@ -16,9 +19,10 @@ describe('ProductService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SortProductsPipe]
+      declarations: [SortProductsPipe, HttpClientTestingModule]
     });
     service = TestBed.inject(ProductService);
+    http = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -42,5 +46,13 @@ describe('ProductService', () => {
     product.stock = 0;
     expect(service.isAvailable(product)).withContext('isAvailable').toBe(false);
     expect(service.isTheLast(product)).withContext('isTheLast').toBe(false);
+  });
+
+  it('should return 1 ser', function() {
+    service.fetchProducts().subscribe((products: Product[]) => {
+      console.log('%O', products);
+    })
+
+    http.expectOne('/products').flush([product, product]);
   });
 });
