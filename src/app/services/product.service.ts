@@ -11,7 +11,7 @@ export class ProductService {
   }
 
   fetchProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>('/products', {});
+    return this.httpClient.get<Product[]>('http://localhost:8080/rest/products', {});
   }
 
   get products(): Product[] {

@@ -15,15 +15,23 @@ export class AppComponent implements  OnInit {
   }
   title = 'formation-angular';
   products: Product[];
+  json: string = 'Fetching json...';
 
   constructor(private productService: ProductService, private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
     this.products = this.productService.products;
+    this.fetchProducts();
   }
 
   updateBasket(product: Product) {
     this.customerService.addProduct(product);
+  }
+
+  fetchProducts() {
+    this.productService.fetchProducts().subscribe(
+      (products) => this.json = JSON.stringify(products)
+    );
   }
 }

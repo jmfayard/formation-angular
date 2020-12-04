@@ -21,6 +21,7 @@ app.use(express.bodyParser());
 app.use(cors);
 
 app.get(context + '/products', function (req, res) {
+  console.log('GET /products');
   res.send(products);
 });
 
