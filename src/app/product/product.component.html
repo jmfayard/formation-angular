@@ -9,8 +9,8 @@
       </p>
 
       <p>
-        <button (click)="onClick()" class="btn btn-primary" [disabled]="product.stock <= 0">
-          <ng-container *ngIf="!options.basket"> Add to basket</ng-container>
+        <button *ngIf="!options.basket" (click)="onClick()" class="btn btn-primary" [disabled]="product.stock <= 0">
+          <ng-container > Add to basket</ng-container>
         </button>
       </p>
     </div>
